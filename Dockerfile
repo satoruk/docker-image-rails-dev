@@ -11,5 +11,3 @@ RUN apt-get install -y build-essential curl git zlib1g-dev libssl-dev \
 
 RUN export RUBYGEMS_GEMDEPS=-
 RUN gem install bundler
-RUN bundle config build.nokogiri --use-system-libraries
-RUN gem install nokogiri
