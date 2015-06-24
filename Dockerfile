@@ -9,5 +9,7 @@ RUN apt-get install -y build-essential curl git zlib1g-dev libssl-dev \
   ruby2.2 ruby2.2-dev mysql-client-5.6 libmysqld-dev \
   nodejs npm
 
+RUN update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
+
 RUN export RUBYGEMS_GEMDEPS=-
 RUN gem install bundler
