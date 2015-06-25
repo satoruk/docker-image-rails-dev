@@ -18,12 +18,13 @@ RUN apt-get install -y libfreetype6 libfreetype6-dev libssl-dev
 RUN apt-get install -y libpng-dev libjpeg-dev libpng++-dev python libX11-dev libxext-dev
 RUN apt-get install -y libpng12-dev
 RUN apt-get install -y fonts-ipaexfont
+WORKDIR /usr/src
 RUN git clone git://github.com/ariya/phantomjs.git phantomjs
-RUN cd phantomjs
+WORKDIR /usr/src/phantomjs
 RUN git checkout 2.0
 RUN ./build.sh --confirm
 RUN mv bin/phantomjs /usr/local/bin
-RUN cd ..
+WORKDIR /usr/src
 RUN rm -rf phantomjs
 
 RUN update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
